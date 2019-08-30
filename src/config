@@ -1,0 +1,4 @@
+module.exports = {
+  kafka_topic: 'mp_scrape_request',
+  kafka_server: '172.17.0.1:9092',
+};

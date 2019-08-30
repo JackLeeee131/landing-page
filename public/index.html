@@ -1,0 +1,1557 @@
+<!DOCTYPE html>
+<html ⚡>
+
+<head>
+  <meta charset="utf-8">
+  <link rel="manifest" href="./manifest.json">
+  <title>Sample document</title>
+  <link rel="canonical" href="./regular-html-version.html">
+  <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+  <style amp-custom>
+    body{
+      box-sizing: border-box;
+    }
+
+    .inputs-button {
+      background: linear-gradient(to right, purple, blue);
+      width: 50px;
+    }
+
+    .inputs,
+    .inputs-button {
+      transition: transform .5s;
+    }
+
+    .inputs:hover,
+    .inputs-button:hover {
+      transform: scale(1.23);
+    }
+
+    .links {
+      transition: transform .2s;
+    }
+
+    .links:hover {
+      transform: scale(1.3);
+      color: blue;
+      cursor: pointer;
+    }
+
+    .width-100 {
+      width: 100%;
+    }
+    .width-50 {
+      width: 50%;
+    }
+    .width-60 {
+      width: 60%;
+    }
+    .width-70 {
+      width: 70%;
+    }
+    .width-80 {
+      width: 80%;
+    }
+    .width-90 {
+      width: 90%;
+    }
+    .p-5 {
+      padding: 5px;
+    }
+    .p-10 {
+      padding: 10px;
+    }
+    .p-15 {
+      padding: 15px;
+    }
+    .p-20 {
+      padding: 20px;
+    }
+    .p-25 {
+      padding: 25px;
+    }
+    .p-30 {
+      padding: 30px;
+    }
+    .m-5 {
+      padding: 5px;
+    }
+    .m-10 {
+      padding: 10px;
+    }
+    .m-15 {
+      padding: 15px;
+    }
+    .m-20 {
+      padding: 20px;
+    }
+    .m-25 {
+      padding: 25px;
+    }
+    .m-30 {
+      padding: 30px;
+    }
+    .p-auto {
+      padding: 0px auto;
+    }
+    .m-auto {
+      margin: 0px auto;
+    }
+    .textCenter {
+      text-align: center;
+    }
+    .textMiddle {
+      vertical-align: middle;
+    }
+    
+    .ppFontS--xxl {
+      font-size: 30px;
+    }
+
+    .main-view {
+      min-height: 440px;
+      min-width: 100%;
+      background: green;
+      position: relative;
+      background-image: url(assets/img/FirstFold-1024px.jpg);
+      background-size: cover;
+    }
+
+
+    .flexable-pr, .flexable-pl {
+        padding: 0px 10px;
+    }
+    /*
+      .main-view *{
+        padding-bottom: : 10px;
+        padding-top: 10px;
+      }
+      */
+    /*Now the responsiveness*/
+    @media screen and (max-width: 475px) {
+      .d-flex {
+        display: block;
+      }
+
+      .flexable-pr, .flexable-pl {
+        padding: 0px;
+      }
+
+      .inputs {
+        width: 100%;
+      }
+
+      .responsive {
+        display: block;
+      }
+    }
+
+    @media (min-width: 768px) {
+      .col-md-3 {
+        -ms-flex: 0 0 25%;
+        flex: 0 0 25%;
+        max-width: 25%;
+      }
+    }
+
+    * {
+      color:white;
+    }
+
+    .sub-header-part {
+      font-size: 1.5rem;
+      font-weight: 500;
+    }
+
+    h1 {
+      font-size: inherit;
+    }
+
+    #input-ids {
+      color: black;
+    }
+
+    /*Styling the content fetched in the amp-list*/
+    amp-list div[role="list"] {
+      display: grid;
+      grid-gap: 0.5em;
+    }
+
+    amp-list {
+      background: white;
+    }
+
+    .ppM__inputGroup__facadeInput_AmpFormSearchBox_416d7053 {
+      height: 60px;
+      -webkit-appearance: textfield;
+      outline: 0;
+      border: 0;
+    }
+
+    .hamburger {
+      padding-left: 10px;
+    }
+
+    .sidebar {
+      padding: 10px;
+      margin: 0;
+    }
+
+    .sidebar>li {
+      list-style: none;
+      margin-bottom: 10px;
+    }
+
+    .sidebar a {
+      text-decoration: none;
+    }
+
+    .close-sidebar {
+      font-size: 1.5em;
+      padding-left: 5px;
+    }
+
+    /*End of Styling*/
+
+
+    .body-parts p {
+      color: blue;
+    }
+
+    .component * {
+      color: black;
+    }
+
+    .highlight-deliverers {
+      background: linear-gradient(180deg, black, transparent);
+      animation-name: highlight;
+      animation-duration: 5s;
+      animation-delay: 3s;
+      animation-iteration-count: infinite;
+    }
+
+    .breathing {
+      animation-name: breath;
+      animation-duration: 5s;
+      animation-iteration-count: infinite;
+      animation-delay: 10s;
+      transition: transform 3s;
+    }
+
+    .breathing:active,
+    .breathing:focus,
+    .breathing:focus-within {
+      animation: none;
+      transform: scale(1);
+    }
+
+    /**Hot animations**/
+    @keyframes highlight {
+      0% {
+        background: linear-gradient(180deg, black, transparent);
+      }
+
+      40% {
+        background: linear-gradient(180deg, grey, transparent);
+      }
+
+      100% {
+        background: linear-gradient(180deg, black, transparent);
+      }
+    }
+
+    @keyframes breath {
+      0% {
+        transform: scale(1.03);
+      }
+
+      20% {
+        transform: scale(1.04);
+      }
+
+      40% {
+        transform: scale(1.05);
+      }
+
+      60% {
+        transform: scale(1.04);
+      }
+
+      80% {
+        transform: scale(1.03);
+      }
+
+      100% {
+        transform: scale(1.00);
+      }
+    }
+
+    #svgelem {
+      position: relative;
+      left: 50%;
+      -webkit-transform: translateX(-40%);
+      -ms-transform: translateX(-40%);
+      transform: translateX(-40%);
+    }
+
+    .my-custom-scrollbar {
+      position: relative;
+      min-width: 200px;
+      width: auto;
+      max-width: 100%;
+      max-height: 200px;
+      overflow: auto;
+    }
+
+    .scrollbar {
+      margin-left: 30px;
+      float: left;
+      height: 300px;
+      width: 65px;
+      background: #fff;
+      overflow-y: scroll;
+      margin-bottom: 25px;
+    }
+
+    .force-overflow {
+      min-height: 450px;
+    }
+
+    .scrollbar-primary::-webkit-scrollbar {
+      width: 12px;
+      background-color: #F5F5F5;
+    }
+
+    .scrollbar-primary::-webkit-scrollbar-thumb {
+      border-radius: 10px;
+      -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+      background-color: #4285F4;
+    }
+
+    .scrollbar-danger::-webkit-scrollbar-track {
+      -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+      background-color: #F5F5F5;
+      border-radius: 10px;
+    }
+
+    .scrollbar-danger::-webkit-scrollbar {
+      width: 12px;
+      background-color: #F5F5F5;
+    }
+
+    .scrollbar-danger::-webkit-scrollbar-thumb {
+      border-radius: 10px;
+      -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+      background-color: #ff3547;
+    }
+
+    .scrollbar-warning::-webkit-scrollbar-track {
+      -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+      background-color: #F5F5F5;
+      border-radius: 10px;
+    }
+
+    .scrollbar-warning::-webkit-scrollbar {
+      width: 12px;
+      background-color: #F5F5F5;
+    }
+
+    .scrollbar-warning::-webkit-scrollbar-thumb {
+      border-radius: 10px;
+      -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+      background-color: #FF8800;
+    }
+
+    .scrollbar-success::-webkit-scrollbar-track {
+      -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+      background-color: #F5F5F5;
+      border-radius: 10px;
+    }
+
+    .scrollbar-success::-webkit-scrollbar {
+      width: 12px;
+      background-color: #F5F5F5;
+    }
+
+    .scrollbar-success::-webkit-scrollbar-thumb {
+      border-radius: 10px;
+      -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+      background-color: #00C851;
+    }
+
+    .scrollbar-info::-webkit-scrollbar-track {
+      -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+      background-color: #F5F5F5;
+      border-radius: 10px;
+    }
+
+    .scrollbar-info::-webkit-scrollbar {
+      width: 12px;
+      background-color: #F5F5F5;
+    }
+
+    .scrollbar-info::-webkit-scrollbar-thumb {
+      border-radius: 10px;
+      -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+      background-color: #33b5e5;
+    }
+
+    .scrollbar-default::-webkit-scrollbar-track {
+      -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+      background-color: #F5F5F5;
+      border-radius: 10px;
+    }
+
+    .scrollbar-default::-webkit-scrollbar {
+      width: 12px;
+      background-color: #F5F5F5;
+    }
+
+    .scrollbar-default::-webkit-scrollbar-thumb {
+      border-radius: 10px;
+      -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+      background-color: #2BBBAD;
+    }
+
+    .scrollbar-secondary::-webkit-scrollbar-track {
+      -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+      background-color: #F5F5F5;
+      border-radius: 10px;
+    }
+
+    .scrollbar-secondary::-webkit-scrollbar {
+      width: 12px;
+      background-color: #F5F5F5;
+    }
+
+    .scrollbar-secondary::-webkit-scrollbar-thumb {
+      border-radius: 10px;
+      -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+      background-color: #aa66cc;
+    }
+
+    .active-select {
+      background: navy;
+    }
+
+    a {
+      background: inherit;
+    }
+
+    .iamp-img {}
+
+    .amphtml-form {}
+
+    .d-flex {
+      display: flex;
+    }
+
+    html {
+      line-height: 1.15;
+      -webkit-text-size-adjust: 100%
+    }
+
+    .pp-cms-secondary-cta_bg {
+      background-color: #60CEE9;
+    }
+
+    .pp-cms-secondary-cta_bg-lighter {
+      background-color: #60CEE9;
+    }
+
+    .pp-cms-secondary-cta_color {
+      color: #60CEE9;
+    }
+
+    .pp-cms-secondary-cta_border-color {
+      border-color: #60CEE9;
+    }
+
+    .pp-cms-secondary-cta_box-shadow {
+      box-shadow: 0 2px 6px #60CEE9;
+    }
+
+    .pp-cms-search-box_bg {
+      background-color: #CCCCCC;
+    }
+
+    .pp-cms-search-box_bg-lighter {
+      background-color: #CCCCCC;
+    }
+
+    .pp-cms-search-box_color {
+      color: #CCCCCC;
+    }
+
+    .pp-cms-search-box_border-color {
+      border-color: #CCCCCC;
+    }
+
+    .pp-cms-search-box_box-shadow {
+      box-shadow: 0 2px 6px #CCCCCC;
+    }
+
+    .pp-parcel-result-delivered_bg {
+      background-color: #0F5A98;
+    }
+
+    .pp-parcel-result-delivered_bg-lighter {
+      background-color: #0F5A98;
+    }
+
+    .pp-parcel-result-delivered_color {
+      color: #0F5A98;
+    }
+
+    .pp-parcel-result-delivered_border-color {
+      border-color: #0F5A98;
+    }
+
+    .pp-parcel-result-delivered_box-shadow {
+      box-shadow: 0 2px 6px #0F5A98;
+    }
+
+    .pp-parcel-result-delivered_svg-fill,
+    .pp-parcel-result-delivered_svg-fill .cls-1 {
+      fill: #0F5A98;
+      stroke: #0F5A98;
+    }
+
+    .pp-parcel-result-active_bg {
+      background-color: #60CEE9;
+    }
+
+    .pp-parcel-result-active_bg-lighter {
+      background-color: #60CEE9;
+    }
+
+    .pp-parcel-result-active_color {
+      color: #60CEE9;
+    }
+
+    .pp-parcel-result-active_border-color {
+      border-color: #60CEE9;
+    }
+
+    .pp-parcel-result-active_box-shadow {
+      box-shadow: 0 2px 6px #60CEE9;
+    }
+
+    .pp-parcel-result-active_svg-fill,
+    .pp-parcel-result-active_svg-fill .cls-1 {
+      fill: #60CEE9;
+      stroke: #60CEE9;
+    }
+
+    .pp-parcel-result-issue_bg {
+      background-color: #FF5722;
+    }
+
+    .pp-parcel-result-issue_bg-lighter {
+      background-color: #FF5722;
+    }
+
+    .pp-parcel-result-issue_color {
+      color: #FF5722;
+    }
+
+    .pp-parcel-result-issue_border-color {
+      border-color: #FF5722;
+    }
+
+    .pp-parcel-result-issue_box-shadow {
+      box-shadow: 0 2px 6px #FF5722;
+    }
+
+    .pp-parcel-result-pending_bg {
+      background-color: #8CA4AF;
+    }
+
+    .pp-parcel-result-pending_bg-lighter {
+      background-color: #8CA4AF;
+    }
+
+    .pp-parcel-result-pending_color {
+      color: #8CA4AF;
+    }
+
+    .pp-parcel-result-pending_border-color {
+      border-color: #8CA4AF;
+    }
+
+    .pp-parcel-result-pending_box-shadow {
+      box-shadow: 0 2px 6px #8CA4AF;
+    }
+
+    .pp-parcel-result-inactive_svg-fill,
+    .pp-parcel-result-inactive_svg-fill .cls-1 {
+      fill: #BCBCBC;
+      stroke: #BCBCBC;
+    }
+
+    .pp-cms-parcel-box_bg {
+      background-color: #FFFFFF;
+    }
+
+    .pp-cms-primary-text_color {
+      color: black;
+    }
+
+    .amphtml-layout-container {
+      display: inline-block;
+    }
+
+    .amphtml-loader-dot {
+      animation: amphtml-loader-dots 2s infinite
+    }
+
+    .amphtml-loader-dot {
+      position: relative;
+      display: inline-block;
+      height: 10px;
+      width: 10px;
+      margin: 2px;
+      border-radius: 100%;
+      background-color: rgba(0, 0, 0, 0.3);
+      box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+      will-change: transform
+    }
+
+    .amphtml-loader .amphtml-loader-dot:first-child {
+      animation-delay: 0s
+    }
+
+    .amphtml-loader .amphtml-loader-dot:nth-child(2) {
+      animation-delay: .1s
+    }
+
+    .amphtml-loader .amphtml-loader-dot:nth-child(3) {
+      animation-delay: .2s
+    }
+
+    @keyframes amphtml-loader-dots {
+
+      0%,
+      to {
+        transform: scale(.7);
+        background-color: rgba(0, 0, 0, 0.3)
+      }
+
+      50% {
+        transform: scale(.8);
+        background-color: rgba(0, 0, 0, 0.5)
+      }
+    }
+
+    .amphtml-layout-fixed-height {
+      display: block;
+      position: relative
+    }
+
+    .amphtml-layout-size-defined {
+      overflow: hidden;
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+    }
+
+    .amphtml-loading-container {
+      display: block;
+      pointer-events: none;
+      z-index: 1
+    }
+
+    .amphtml-fill-content {
+      display: block;
+      /* height: 0; */
+      max-height: 100%;
+      max-width: 100%;
+      min-height: 100%;
+      min-width: 100%;
+      /* width: 0; */
+      margin: auto
+    }
+
+    .amphtml-layout-size-defined .amphtml-fill-content {
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0
+    }
+
+    .amphtml-replaced-content {
+      padding: 0;
+      border: none
+    }
+
+    .ppSizing__width--100 {
+      width: 100%
+    }
+
+    .mui-container {
+      -webkit-box-sizing: border-box;
+      box-sizing: border-box;
+      margin-right: auto;
+      margin-left: auto;
+    }
+
+    :root:not(#FK_ID) .ppDisFlex {
+      display: flex;
+    }
+
+    :root:not(#FK_ID) .ppContentFit--contain {
+      object-fit: contain;
+    }
+
+    .amphtml-layout-size-defined {
+      overflow: hidden;
+    }
+
+    .amphtml-layout-responsive,
+    [layout=responsive][width][height]:not(.amphtml-layout-responsive),
+    [width][height][sizes]:not(.amphtml-layout-responsive) {
+      display: block;
+      position: relative;
+    }
+
+    .row {
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+    }
+
+    .col-md,
+    .col-md-1,
+    .col-md-10,
+    .col-md-11,
+    .col-md-12,
+    .col-md-2,
+    .col-md-3,
+    .col-md-4,
+    .col-md-5,
+    .col-md-6,
+    .col-md-7,
+    .col-md-8,
+    .col-md-9,
+    .col-md-auto,
+    .col-sm,
+    .col-sm-1,
+    .col-sm-10,
+    .col-sm-11,
+    .col-sm-12,
+    .col-sm-2,
+    .col-sm-3,
+    .col-sm-4,
+    .col-sm-5,
+    .col-sm-6,
+    .col-sm-7,
+    .col-sm-8,
+    .col-sm-9,
+    .col-sm-auto {
+      position: relative;
+      width: 100%;
+      min-height: 1px;
+      /* padding-right: 1rem;
+      padding-left: 1rem; */
+    }
+
+    .col,
+    .col-1,
+    .col-10,
+    .col-11,
+    .col-12,
+    .col-2,
+    .col-3,
+    .col-4,
+    .col-5,
+    .col-6,
+    .col-7,
+    .col-8,
+    .col-9,
+    .col-auto,
+    .col-lg,
+    .col-lg-1,
+    .col-lg-10,
+    .col-lg-11,
+    .col-lg-12,
+    .col-lg-2,
+    .col-lg-3,
+    .col-lg-4,
+    .col-lg-5,
+    .col-lg-6,
+    .col-lg-7,
+    .col-lg-8,
+    .col-lg-9,
+    .col-lg-auto,
+    .col-md,
+    .col-md-1,
+    .col-md-10,
+    .col-md-11,
+    .col-md-12,
+    .col-md-2,
+    .col-md-3,
+    .col-md-4,
+    .col-md-5,
+    .col-md-6,
+    .col-md-7,
+    .col-md-8,
+    .col-md-9,
+    .col-md-auto,
+    .col-sm,
+    .col-sm-1,
+    .col-sm-10,
+    .col-sm-11,
+    .col-sm-12,
+    .col-sm-2,
+    .col-sm-3,
+    .col-sm-4,
+    .col-sm-5,
+    .col-sm-6,
+    .col-sm-7,
+    .col-sm-8,
+    .col-sm-9,
+    .col-sm-auto,
+    .col-xl,
+    .col-xl-1,
+    .col-xl-10,
+    .col-xl-11,
+    .col-xl-12,
+    .col-xl-2,
+    .col-xl-3,
+    .col-xl-4,
+    .col-xl-5,
+    .col-xl-6,
+    .col-xl-7,
+    .col-xl-8,
+    .col-xl-9,
+    .col-xl-auto {
+      position: relative;
+      width: 100%;
+      /* padding-right: 15px;
+      padding-left: 15px; */
+    }
+
+    .PR {
+      padding: 2px 0px;
+      display: block;
+    }
+
+    .col-md-3 {
+      /* flex: 0 0 25%; */
+      max-width: 25%;
+    }
+
+    .amphtml-layout-size-defined .amphtml-fill-content {
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+    }
+
+    .amphtml-layout-responsive,
+    [layout=responsive][width][height]:not(.amphtml-layout-responsive),
+    [width][height][sizes]:not(.amphtml-layout-responsive) {
+      display: block;
+      position: relative;
+    }
+
+    .amphtml-blurry-placeholder,
+    .amphtml-fill-content {
+      display: block;
+      height: 0;
+      max-height: 100%;
+      max-width: 100%;
+      min-height: 100%;
+      min-width: 100%;
+      width: 0;
+      margin: auto;
+    }
+
+    .res-size {
+      width: 90px;
+      height: 90px;
+    }
+
+    @media screen and (min-width: 768px) {
+      .mui-container {
+        max-width: 740px;
+      }
+    }
+
+    @media screen and (max-width: 768px) {
+      .mui-container {
+        max-width: 100%;
+      }
+      .res-size {
+        width: 50px;
+        height: 50px;
+      }
+
+      .amphtml-blurry-placeholder,
+      .amphtml-fill-content {
+        display: block;
+        height: 0;
+        max-height: 40px;
+        max-width: 40px;
+        min-height: 40px;
+        min-width: 40px;
+        width: 0;
+        margin: auto;
+      }
+    }
+
+    .mui-container {
+      -webkit-box-sizing: border-box;
+      box-sizing: border-box;
+      margin-right: auto;
+      margin-left: auto;
+      position: relative;
+    }
+
+    :root:not(#FK_ID) .ppDisFlex__flex-direction--column {
+      flex-direction: column;
+      width: 100%;
+    }
+
+    amp-img {
+      max-width: 100%;
+    }
+
+    .ppM_AmpCarrierRatingOverall_70617274 amp-img {
+      max-width: 25%;
+    }
+
+    .ppM_AmpFormSearchBox_416d7053.ppM--ampForm_AmpFormSearchBox_416d7053 .ppM__parcelItem_AmpFormSearchBox_416d7053 {
+      counter-increment: amp-form-counter;
+    }
+
+    .ppM_AmpFormSearchBox_416d7053.ppM--ampForm_AmpFormSearchBox_416d7053 .ppM__parcelItem_AmpFormSearchBox_416d7053::before {
+      content: counter(amp-form-counter) ".";
+      position: absolute;
+      color: #777;
+    }
+
+    :root:not(#FK_ID) .ppPad__s--right {
+      padding-right: .5rem;
+    }
+
+    :root:not(#FK_ID) .ppPad__b--left {
+      padding-left: 1rem;
+    }
+
+    :root:not(#FK_ID) .ppFlex-1 {
+      flex: 1;
+    }
+
+    .pp-cms-primary-text_color {
+      color: #626262;
+    }
+
+    .ppText__ellipsis {
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .icon-delete-circle::before {
+      content: "";
+    }
+
+    :root:not(#FK_ID) .ppClr--gray-900 {
+      color: #333;
+    }
+
+    .ppM_AmpFormSearchBox_416d7053.ppM--ampForm_AmpFormSearchBox_416d7053 .ppM__parcelItem__deleteIcon_AmpFormSearchBox_416d7053 {
+      height: 16px;
+    }
+
+    :root:not(#FK_ID) .ppTextLineH--none {
+      line-height: 1;
+    }
+
+    :root:not(#FK_ID) .ppPad__b {
+      padding: 1rem;
+    }
+
+    .amp-hidden {
+      visibility: hidden;
+    }
+
+    form button {
+      min-width: 20px;
+    }
+  </style>
+
+  <script type="application/ld+json">
+    {
+      "@context": "http://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Article headline",
+      "image": [
+        "thumbnail1.jpg"
+      ],
+      "datePublished": "2019-08-01T08:00:00+08:00"
+    }
+    </script>
+
+    <!-- <script type="application/ld+json">
+      "publisher": {
+      "@type": "Organization",
+      "name": "⚡ AMP Times",
+      "logo": {
+      "@type": "ImageObject",
+      "url": "https://example.com/amptimes_logo.jpg",
+      "width": 600,
+      "height": 60
+      }
+      }```
+    </script> -->
+  <script async custom-element="amp-carousel" src="https://cdn.ampproject.org/v0/amp-carousel-0.1.js"></script>
+  <script async custom-element="amp-ad" src="https://cdn.ampproject.org/v0/amp-ad-0.1.js"></script>
+  <style amp-boilerplate>
+    body {
+      -webkit-animation: -amp-start 8s steps(1, end) 0s 1 normal both;
+      -moz-animation: -amp-start 8s steps(1, end) 0s 1 normal both;
+      -ms-animation: -amp-start 8s steps(1, end) 0s 1 normal both;
+      animation: -amp-start 8s steps(1, end) 0s 1 normal both
+    }
+
+    @-webkit-keyframes -amp-start {
+      from {
+        visibility: hidden
+      }
+
+      to {
+        visibility: visible
+      }
+    }
+
+    @-moz-keyframes -amp-start {
+      from {
+        visibility: hidden
+      }
+
+      to {
+        visibility: visible
+      }
+    }
+
+    @-ms-keyframes -amp-start {
+      from {
+        visibility: hidden
+      }
+
+      to {
+        visibility: visible
+      }
+    }
+
+    @-o-keyframes -amp-start {
+      from {
+        visibility: hidden
+      }
+
+      to {
+        visibility: visible
+      }
+    }
+
+    @keyframes -amp-start {
+      from {
+        visibility: hidden
+      }
+
+      to {
+        visibility: visible
+      }
+    }
+  </style>
+  <noscript>
+    <style amp-boilerplate>
+      body {
+        -webkit-animation: none;
+        -moz-animation: none;
+        -ms-animation: none;
+        animation: none
+      }
+    </style>
+  </noscript>
+  <script async src="https://cdn.ampproject.org/v0.js"></script>
+  <script async custom-element="amp-bind" src="https://cdn.ampproject.org/v0/amp-bind-0.1.js"></script>
+  <script async custom-element="amp-form" src="https://cdn.ampproject.org/v0/amp-form-0.1.js"></script>
+  <script async custom-element="amp-list" src="https://cdn.ampproject.org/v0/amp-list-0.1.js"></script>
+  <script async custom-template="amp-mustache" src="https://cdn.ampproject.org/v0/amp-mustache-0.2.js"></script>
+  <script async custom-element="amp-install-serviceworker" src="https://cdn.ampproject.org/v0/amp-install-serviceworker-0.1.js"></script>
+  <!-- <script async custom-element="amp-script" src="https://cdn.ampproject.org/v0/amp-script-0.1.js"></script> -->
+  <meta name="amp-experiment-token" content="{pwa001}">
+</head>
+
+<body>
+  <div class="mui-container-fluid">
+    <div class="mui-container main-view mui--z3 p-10">
+      <div class=" mui--text-center mui-container">
+        <!-- <script async custom-element = ""mui-container"  src="http://localhost:8080/custom.js"> -->
+        <div class="mui-container header-part justify-content-center textCenter">
+          <amp-img src="https://assets.parcelperform.com/pp-web-app-public/img/pp-brand-logo/pm_white.svg" width="200"
+            height="64" layout="fixed" style="width: 200px; height: 64px;" class="textCenter"></amp-img>
+        </div>
+        </script> 
+        <div class="mui-container sub-header-part textCenter">
+          Track all your parcels. Simple and easy!
+        </div>
+        <div class="mui-container" id="history">
+          <p style="margin: 10px 0px">History</p>
+            <div class="my-custom-scrollbar scrollbar-primary active-select" id="lg_history">
+              <a href="#" class="list-group-item active">No history</a>
+            </div>
+        </div>
+        <div class="mui-container" id="bindpart">
+          <div
+            class="inputs ppDisFlex ppBorRad__s ppMar__b--top-bottom ppM_AmpFormSearchBox_416d7053 ppM--ampForm_AmpFormSearchBox_416d7053">
+            <amp-bind-macro id="isSeparatorCharacter" arguments="x"
+              expression="ppAmpSearchBox_320397_separatorChars.includes(x)" class="amphtml-element "></amp-bind-macro>
+            <amp-bind-macro id="isValidCharacter" arguments="x"
+              expression="ppAmpSearchBox_320397_validChars.includes(x)" class="amphtml-element "></amp-bind-macro>
+            <amp-bind-macro id="splitString" arguments="value"
+              expression="value.split('').reduce((acc, x) => acc + (isSeparatorCharacter(x) ? '|' : isValidCharacter(x) ? x.toUpperCase() : ''  ), '|').split('|')"
+              class="amphtml-element "></amp-bind-macro>
+            <amp-bind-macro id="buildState" arguments="x, state"
+              expression="x &amp;&amp; !state[0].includes(x) ? [state[0].concat([x]).splice(5), ''] : state"
+              class="amphtml-element "></amp-bind-macro>
+            <amp-bind-macro id="concatData" arguments="dataArray"
+              expression="dataArray[0].concat([dataArray[1]]).filter(x => !!x)" class="amphtml-element ">
+            </amp-bind-macro>
+            <amp-bind-macro id="dontHaveData" arguments="dataArray" expression="!concatData(dataArray).length"
+              class="amphtml-element "></amp-bind-macro>
+            <amp-state id="ppAmpSearchBox_320397_parcelIds" class="amphtml-element " hidden="" aria-hidden="true">
+              <script type="application/json">[[],""]</script>
+            </amp-state>
+            <amp-state id="ppAmpSearchBox_320397_separatorChars" class="amphtml-element " hidden="" aria-hidden="true">
+              <script type="application/json">[" ",",",";",":","\t","\n"]</script>
+            </amp-state>
+            <amp-state id="ppAmpSearchBox_320397_validChars" class="amphtml-element " hidden="" aria-hidden="true">
+              <script
+                type="application/json">["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z","a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z","0","1","2","3","4","5","6","7","8","9","-","_"]
+              </script>
+            </amp-state>
+            <div class="ppDisFlex ppDisFlex__flex-direction--column ppFlex-1">
+              <amp-list layout="fixed-height" height="0" [height]="ppAmpSearchBox_320397_parcelIds[0].length * 48"
+                [src]="[[ppAmpSearchBox_320397_parcelIds[0]]]" id="ppAmpSearchBox_320397_list"
+                class="amphtml-element amphtml-layout-fixed-height amphtml-layout-size-defined" aria-live="polite"
+                style="height: 0px;">
+                <template type="amp-mustache">
+                  <div on="tap:ppAmpSearchBox_320397_facadeInput.focus" role="button" tabindex="1"
+                    class="ppMar__none ppM__parcelList_AmpFormSearchBox_416d7053">{{#0}} {{#.}}
+                    <div
+                      class="ppFontS--b ppTextLineH--none ppDisFlex ppPad__b ppM__parcelItem_AmpFormSearchBox_416d7053">
+                      <div class="ppFlex-1 ppPad__s--right ppPad__b--left ppText__ellipsis pp-cms-primary-text_color">
+                        {{.}}</div>
+                      <i class="pp-icon icon-delete-circle ppClr--gray-900 ppM__parcelItem__deleteIcon_AmpFormSearchBox_416d7053"
+                        role="button" tabindex="0" on="tap:AMP.setState({ppAmpSearchBox_320397_parcelIds: [
+                      ppAmpSearchBox_320397_parcelIds[0].filter(x => x != '{{.}}'),
+                      ppAmpSearchBox_320397_parcelIds[1]
+                    ]})"></i>
+                    </div>{{/.}} {{/0}}</div>
+                </template>
+                <div class="amphtml-loading-container amphtml-fill-content amp-hidden">
+                  <div class="amphtml-loader">
+                    <div class="amphtml-loader-dot"></div>
+                    <div class="amphtml-loader-dot"></div>
+                    <div class="amphtml-loader-dot"></div>
+                  </div>
+                </div>
+                <div role="list" class="amphtml-fill-content amphtml-replaced-content"></div>
+              </amp-list>
+
+              <form on="" method="GET" action="/../trackingpage" target="_top" id="ppAmpSearchBox_320397_frm"
+                novalidate="" class="amphtml-form">
+                <input type="hidden" on="" id="ppAmpSearchBox_320397_hiddenInput" name="pParcelIds"
+                  [value]="concatData(ppAmpSearchBox_320397_parcelIds).join('~')">
+                <input pattern="\n{100}" on="change:AMP.setState({
+                    ppAmpSearchBox_320397_parcelIds: splitString(event.value).reduce((acc,x) => buildState(x, acc), ppAmpSearchBox_320397_parcelIds)
+                  });
+                  input-throttled:AMP.setState({
+                    ppAmpSearchBox_320397_parcelIds: splitString(event.value).reduce((acc,x,ix, arr) => ix == (arr.length - 1) ? [acc[0], x] : buildState(x, acc), ppAmpSearchBox_320397_parcelIds)
+                  })" autocomplete="off" spellcheck="false"
+                  class="ppSizing__width--100 ppFontS--b ppTextLineH--none ppPad__s--left-right ppMar__b--left pp-cms-primary-text_color ppM__inputGroup__facadeInput_AmpFormSearchBox_416d7053"
+                  id="ppAmpSearchBox_320397_facadeInput" placeholder="Enter one or more tracking IDs"
+                  [value]="ppAmpSearchBox_320397_parcelIds[1] || ''" required=""
+                  [required]="dontHaveData(ppAmpSearchBox_320397_parcelIds)"
+                  [pattern]="dontHaveData(ppAmpSearchBox_320397_parcelIds) &amp;&amp; &quot;\n{100}&quot;">
+              </form>
+            </div>
+            <button
+              id = "buttonId"
+              class="inputs-button pp-icon icon-angle-double-right ppClr--white pp-cms-primary-cta_bg ppFontS--xs ppPos--relative ppM__submitButton_AmpFormSearchBox_416d7053"
+              disabled=""
+              [disabled]="dontHaveData(ppAmpSearchBox_320397_parcelIds)" onclick="saveFunction()">
+            </button>
+          </div>
+        </div>
+
+        <div class="justify-content-center footer-part pb-2">
+
+          <div class="width-100 d-flex justify-content-center">
+            <div class="width-50 textCenter">
+              <div class="mui-container links flexable-pl">
+                Terms & Conditions
+              </div>
+            </div>
+            <div class="width-50 textCenter">
+              <div class="mui-container links flexable-pr">
+                Get updates on Messenger
+              </div>
+            </div>
+          </div>
+        </div>
+      <!-- </amp-script> -->
+      </div>
+    </div>
+
+    <div class="mui-container body-parts">
+      <div class="mui-container justify-content-center d-flex" style="padding-bottom: 90px">
+        <amp-img src="assets/img/bodytopdisplay.png" width="740" height="90" layout="fixed"
+          class="amphtml-element amphtml-layout-fixed amphtml-layout-size-defined amphtml-layout mui--z3">
+        </amp-img>
+      </div>
+      <div class="mui-container highlight-deliverers p-10">
+        <div class="ppM__carrierList_AmpCarrierList_416d7043 ppM_AmpList_416d704c">
+          <div class="row ppAmpList__list">
+            <div class="col-md-3 col-sm-6">
+              <div class="ppPad__b ppShadow__hv--gray">
+                <a href="/track-dhl-express/" title="DHL Express" class="ppTextAlg--center ppDis--block">
+                  <span class="res-size ppPos--relative ppDis--block">
+                    <amp-img layout="responsive" alt="dhlexp" width="100" height="100"
+                      heights="(max-width: 991px) 100px, 150px"
+                      class="res-size ppContentFit--contain amphtml-element amphtml-layout-responsive amphtml-layout-size-defined amphtml-layout res-size"
+                      src="https://s3-ap-southeast-1.amazonaws.com/static-pp/pp-web-app-assets/logo-carriers/square-logo-carries/dhlexp.png">
+                    </amp-img>
+                  </span>
+                </a>
+              </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+              <div class="ppPad__b ppShadow__hv--gray">
+                <a href="/track-fedex/" title="FedEx" class="ppTextAlg--center ppDis--block">
+                  <span class="res-size ppPos--relative ppDis--block">
+                    <amp-img layout="responsive" alt="feexgl" width="100" height="100"
+                      heights="(max-width: 991px) 100px, 150px"
+                      class="res-size ppContentFit--contain amphtml-element amphtml-layout-responsive amphtml-layout-size-defined amphtml-layout"
+                      src="https://s3-ap-southeast-1.amazonaws.com/static-pp/pp-web-app-assets/logo-carriers/square-logo-carries/feexgl.png">
+                      <!-- <amp-img layout="responsive" alt="feexgl"
+                        src="https://s3-ap-southeast-1.amazonaws.com/static-pp/pp-web-app-assets/logo-carriers/square-logo-carries/feexgl.png"
+                        width="100" height="100" class="amphtml-fill-content amphtml-replaced-content">
+                        <amp-img layout="responsive" alt="feexgl"
+                          src="https://s3-ap-southeast-1.amazonaws.com/static-pp/pp-web-app-assets/logo-carriers/square-logo-carries/feexgl.png"
+                          width="100" height="100" class="amphtml-fill-content amphtml-replaced-content"> -->
+                        </amp-img>
+                  </span>
+                </a>
+              </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+              <div class="ppPad__b ppShadow__hv--gray">
+                <a href="/track-usps/" title="USPS" class="ppTextAlg--center ppDis--block">
+                  <span class="ppPos--relative ppDis--block">
+                    <amp-img layout="responsive" alt="uspsgl" width="100" height="100"
+                      heights="(max-width: 991px) 100px, 150px"
+                      class="res-size ppContentFit--contain amphtml-element amphtml-layout-responsive amphtml-layout-size-defined amphtml-layout"
+                      src="https://s3-ap-southeast-1.amazonaws.com/static-pp/pp-web-app-assets/logo-carriers/square-logo-carries/uspsgl.png">
+                      <!-- <amp-img layout="responsive" alt="uspsgl"
+                        src="https://s3-ap-southeast-1.amazonaws.com/static-pp/pp-web-app-assets/logo-carriers/square-logo-carries/uspsgl.png"
+                        width="100" height="100" class="amphtml-fill-content amphtml-replaced-content">
+                        <amp-img layout="responsive" width="100" height="100" alt="uspsgl"
+                          src="https://s3-ap-southeast-1.amazonaws.com/static-pp/pp-web-app-assets/logo-carriers/square-logo-carries/uspsgl.png"
+                          class="amphtml-fill-content amphtml-replaced-content"></amp-img> -->
+                      </amp-img>
+                  </span>
+                </a>
+              </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+              <div class="ppPad__b ppShadow__hv--gray">
+                <a href="/track-china-post/" title="China Post" class="ppTextAlg--center ppDis--block">
+                  <span class="res-size ppPos--relative ppDis--block">
+                    <amp-img layout="responsive" alt="chnpos" width="100" height="100"
+                      heights="(max-width: 991px) 100px, 150px"
+                      class="res-size ppContentFit--contain amphtml-element amphtml-layout-responsive amphtml-layout-size-defined amphtml-layout"
+                      src="https://s3-ap-southeast-1.amazonaws.com/static-pp/pp-web-app-assets/logo-carriers/square-logo-carries/chnpos.png">
+                      <!-- <amp-img layout="responsive" alt="chnpos"
+                        src="https://s3-ap-southeast-1.amazonaws.com/static-pp/pp-web-app-assets/logo-carriers/square-logo-carries/chnpos.png"
+                        width="100" height="100" class="amphtml-fill-content amphtml-replaced-content">
+                        <amp-img layout="responsive" width="100" height="100" alt="chnpos"
+                          src="https://s3-ap-southeast-1.amazonaws.com/static-pp/pp-web-app-assets/logo-carriers/square-logo-carries/chnpos.png"
+                          class="amphtml-fill-content amphtml-replaced-content"> -->
+                    </amp-img>
+                  </span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="mui-container customer-ratings" style="padding: 0px 20px" id="bodypartrating">
+        <div class="mui-container">
+          <div class="component ppAmpList__list d-flex">
+            <div class="ppPad__m--top-bottom ppPad__l--left-right col-sm-12">
+              <div>
+                <div class="ppM_AmpCarrierRatingOverall_70617274 ppDisFlex">
+                  <div class="res-size ppPos--relative ppM__carrierLogo_AmpCarrierRatingOverall_70617274 ppDis--block">
+                    <amp-img layout="fill" width="100" height="100"
+                      class="res-size ppContentFit--contain amphtml-element amphtml-layout-fill amphtml-layout-size-defined amphtml-layout"
+                      src="https://s3-ap-southeast-1.amazonaws.com/static-pp/pp-web-app-assets/logo-carriers/square-logo-carries/dhlexp.png">
+                      <!-- <amp-img width="100" height="100"
+                        src="https://s3-ap-southeast-1.amazonaws.com/static-pp/pp-web-app-assets/logo-carriers/square-logo-carries/dhlexp.png"
+                        class="amphtml-fill-content amphtml-replaced-content">
+                        <amp-img width="100" height="100"
+                          src="https://s3-ap-southeast-1.amazonaws.com/static-pp/pp-web-app-assets/logo-carriers/square-logo-carries/dhlexp.png"
+                          class="amphtml-fill-content amphtml-replaced-content"> -->
+                        </amp-img>
+                      </div>
+                  <div class="ppFlex-1 ppPad__m--left" style="padding: 5px 20px 0px 20px">
+                    <div>
+                      <div class="ppFontS--s">
+                        <span>Overall Rating</span>
+                      </div>
+                      <div>
+                        <div class="ppClr--second" style='width: 30px; height: 20px'>
+                          <i class="pp-icon icon-star-empty ppFontS--base"></i>
+                          <i class="pp-icon icon-star-full ppFontS--large"></i>
+                          <i class="pp-icon icon-star-full ppFontS--large"></i>
+                          <i class="pp-icon icon-star-half ppFontS--large"></i>
+                          <i class="pp-icon icon-star-empty ppFontS--large"></i>
+                        </div>
+                      </div>
+                      <div class=" row ppMar__none ppDisFlex__align-items--baseline ppDisFlex__justify-content--space-between">
+                        <span class="ppFontW--medium ppFontS--xxl" style="padding-right: 30px">3.6</span>
+                        <span class="ppFontS--xs ppClr--gray-900 textMiddle">
+                          <div class="p-5"></div>
+                          <span>based on 4749 ratings</span>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          
+            <div class="ppPad__m--top-bottom ppPad__l--left-right col-sm-12 col-md-6">
+              <div class="mui-container d-flex">
+                <div class="ppM_AmpCarrierRatingOverall_70617274 ppDisFlex">
+                  <div class="res-size ppPos--relative ppM__carrierLogo_AmpCarrierRatingOverall_70617274 ppDis--block">
+                    <amp-img layout="fill"
+                      class="res-size ppContentFit--contain amphtml-element amphtml-layout-fill amphtml-layout-size-defined amphtml-layout"
+                      src="https://s3-ap-southeast-1.amazonaws.com/static-pp/pp-web-app-assets/logo-carriers/square-logo-carries/feexgl.png">
+                      <!-- <amp-img width="100" height="100"
+                        src="https://s3-ap-southeast-1.amazonaws.com/static-pp/pp-web-app-assets/logo-carriers/square-logo-carries/feexgl.png"
+                        class="amphtml-fill-content amphtml-replaced-content">
+                        <amp-img width="100" height="100"
+                          src="https://s3-ap-southeast-1.amazonaws.com/static-pp/pp-web-app-assets/logo-carriers/square-logo-carries/feexgl.png"
+                          class="amphtml-fill-content amphtml-replaced-content"> -->
+                        </amp-img>
+                  </div>
+                  <div class="ppFlex-1 ppPad__m--left">
+                    <div style="padding: 5px 20px 0px 20px">
+                      <div class="ppFontS--s">
+                        <span>Overall Rating</span>
+                      </div>
+                      <div style="width: 20px; height: 20px">
+                        <span class="ppClr--second"><i class="pp-icon icon-star-full ppFontS--large"></i><i
+                          class="pp-icon icon-star-full ppFontS--large"></i><i
+                          class="pp-icon icon-star-full ppFontS--large"></i><i
+                          class="pp-icon icon-star-empty ppFontS--large"></i><i
+                          class="pp-icon icon-star-empty ppFontS--large"></i>
+                        </span>
+                      </div>
+                      <div class=" row ppMar__none ppDisFlex__align-items--baseline ppDisFlex__justify-content--space-between">
+                        <span class="ppFontW--medium ppFontS--xxl" style="padding-right: 30px">3.1</span>
+                        <div>
+                          <div style="width: 30px; height: 10px"></div>
+                          <div class="ppFontS--xs ppClr--gray-900"> based on 4271 ratings</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+          </div>
+        </div>
+
+        <!-- ----------------- Secode Part -------------------------- -->
+
+        <div class="d-flex w-100" style="padding: 20px 0px; box-sizing: border-box">
+        <div class="ppBorder__default--bottom ppPad__m--top ppM_AmpList_416d704c width-50" style="padding-right: 30px">
+          <div class="row ppAmpList__list">
+            <div class="col-sm-12 col-md-12" style="padding: 20px 0px; border-top: 1px solid rgb(173, 185, 161)">
+              <div class="ppM_AmpCarrierSubRating_70617274 ppPad__m--top-bottom ppBorder__default--top  ppDisFlex ppDisFlex__justify-content--space-between ppDisFlex__align-items--center">
+                <span class="ppFontS--s">
+                  <span style="color: black">On time delivery</span>
+                </span>
+                <div
+                  class="ppPad__s--left ppDisFlex ppDisFlex__align-items--baseline ppDisFlex__justify-content--space-between">
+                  <span>
+                    <span class="ppClr--second">
+                      <i class="pp-icon icon-star-full ppFontS--base"></i>
+                      <i class="pp-icon icon-star-full ppFontS--base"></i>
+                      <i class="pp-icon icon-star-full ppFontS--base"></i>
+                      <i class="pp-icon icon-star-half ppFontS--base"></i>
+                      <i class="pp-icon icon-star-empty ppFontS--base"></i>
+                    </span>
+                  </span>
+                  <span
+                    class="ppM__ratingInfo__ratingPoint_AmpCarrierSubRating_70617274  ppTextAlg--right ppFontW--medium ppFontS--l" 
+                    style="color: black; float: right; position: absolute">3.5</span>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-12 col-md-12" style="padding: 20px 0px; border-bottom: 1px solid rgb(173, 185, 161); border-top: 1px solid rgb(173, 185, 161)">
+              <div class="ppM_AmpCarrierSubRating_70617274 ppPad__m--top-bottom ppBorder__default--top  ppDisFlex ppDisFlex__justify-content--space-between ppDisFlex__align-items--center">
+                <span class="ppFontS--s">
+                  <span style="color: black">Delivery experience</span>
+                </span>
+                <div class="ppPad__s--left ppDisFlex ppDisFlex__align-items--baseline ppDisFlex__justify-content--space-between">
+                  <span>
+                    <span class="ppClr--second">
+                      <i class="pp-icon icon-star-full ppFontS--base"></i>
+                      <i class="pp-icon icon-star-full ppFontS--base"></i>
+                      <i class="pp-icon icon-star-full ppFontS--base"></i>
+                      <i class="pp-icon icon-star-half ppFontS--base"></i>
+                      <i class="pp-icon icon-star-empty ppFontS--base"></i>
+                    </span>
+                  </span>
+                  <span
+                    class="ppM__ratingInfo__ratingPoint_AmpCarrierSubRating_70617274  ppTextAlg--right ppFontW--medium ppFontS--l" style="color: black">3.5</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="ppBorder__default--bottom ppPad__m--top ppM_AmpList_416d704c width-50" style="padding-left: 30px">
+            <div class="row ppAmpList__list">
+              <div class="col-sm-12 col-md-12" style="padding: 20px 0px; border-top: 1px solid rgb(173, 185, 161)">
+                <div class="ppM_AmpCarrierSubRating_70617274 ppPad__m--top-bottom ppBorder__default--top  ppDisFlex ppDisFlex__justify-content--space-between ppDisFlex__align-items--center">
+                  <span class="ppFontS--s">
+                    <span style="color: black">On time delivery</span>
+                  </span>
+                  <div
+                    class="ppPad__s--left ppDisFlex ppDisFlex__align-items--baseline ppDisFlex__justify-content--space-between">
+                    <span>
+                      <span class="ppClr--second">
+                        <i class="pp-icon icon-star-full ppFontS--base"></i>
+                        <i class="pp-icon icon-star-full ppFontS--base"></i>
+                        <i class="pp-icon icon-star-full ppFontS--base"></i>
+                        <i class="pp-icon icon-star-half ppFontS--base"></i>
+                        <i class="pp-icon icon-star-empty ppFontS--base"></i>
+                      </span>
+                    </span>
+                    <span
+                      class="ppM__ratingInfo__ratingPoint_AmpCarrierSubRating_70617274  ppTextAlg--right ppFontW--medium ppFontS--l" 
+                      style="color: black; float: right; position: absolute">3.5</span>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-12 col-md-12" style="padding: 20px 0px; border-bottom: 1px solid rgb(173, 185, 161); border-top: 1px solid rgb(173, 185, 161)">
+                <div class="ppM_AmpCarrierSubRating_70617274 ppPad__m--top-bottom ppBorder__default--top  ppDisFlex ppDisFlex__justify-content--space-between ppDisFlex__align-items--center">
+                  <span class="ppFontS--s">
+                    <span style="color: black">Delivery experience</span>
+                  </span>
+                  <div class="ppPad__s--left ppDisFlex ppDisFlex__align-items--baseline ppDisFlex__justify-content--space-between">
+                    <span>
+                      <span class="ppClr--second">
+                        <i class="pp-icon icon-star-full ppFontS--base"></i>
+                        <i class="pp-icon icon-star-full ppFontS--base"></i>
+                        <i class="pp-icon icon-star-full ppFontS--base"></i>
+                        <i class="pp-icon icon-star-half ppFontS--base"></i>
+                        <i class="pp-icon icon-star-empty ppFontS--base"></i>
+                      </span>
+                    </span>
+                    <span
+                      class="ppM__ratingInfo__ratingPoint_AmpCarrierSubRating_70617274  ppTextAlg--right ppFontW--medium ppFontS--l" style="color: black; float: right">3.5</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+      </div>
+
+
+      <!-- =================== Last Part ==================== -->
+        <div class="component ppAmpList__list d-flex" style="padding-bottom: 30px">
+          <div class="ppPad__m--top-bottom ppPad__l--left-right col-sm-12 col-md-6 width-50">
+            <div class="ppM_AmpCarrierRatingOverall_70617274 ppDisFlex">
+              <div class="res-size ppPos--relative ppM__carrierLogo_AmpCarrierRatingOverall_70617274 ppDis--block">
+                <amp-img layout="fill" width="90px" height="90px"
+                  class="res-size ppContentFit--contain amphtml-element amphtml-layout-fill amphtml-layout-size-defined amphtml-layout"
+                  src="https://s3-ap-southeast-1.amazonaws.com/static-pp/pp-web-app-assets/logo-carriers/square-logo-carries/uspsgl.png">
+                </amp-img>
+              </div>
+              <div class="ppFlex-1 ppPad__m--left">
+                <div style="padding: 5px 20px 0px 20px">
+                  <div class="ppFontS--s">
+                    <span>Overall Rating</span>
+                  </div>
+                  <div style="width: 20px; height: 20px">
+                    <span class="ppClr--second"><i class="pp-icon icon-star-full ppFontS--large"></i><i
+                      class="pp-icon icon-star-full ppFontS--large"></i><i
+                      class="pp-icon icon-star-full ppFontS--large"></i><i
+                      class="pp-icon icon-star-empty ppFontS--large"></i><i
+                      class="pp-icon icon-star-empty ppFontS--large"></i>
+                    </span>
+                  </div>
+                  <div class=" row ppMar__none ppDisFlex__align-items--baseline ppDisFlex__justify-content--space-between">
+                    <span class="ppFontW--medium ppFontS--xxl" style="padding-right: 30px">3.1</span>
+                    <div>
+                      <div style="width: 30px; height: 10px"></div>
+                      <div class="ppFontS--xs ppClr--gray-900"> based on 4271 ratings</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="ppPad__m--top-bottom ppPad__l--left-right col-sm-12 col-md-6 width-50">
+              <div class="ppM_AmpCarrierRatingOverall_70617274 ppDisFlex">
+                <div class="res-size ppPos--relative ppM__carrierLogo_AmpCarrierRatingOverall_70617274 ppDis--block">
+                  <amp-img layout="fill"
+                    class="res-size ppContentFit--contain amphtml-element amphtml-layout-fill amphtml-layout-size-defined amphtml-layout"
+                    src="https://s3-ap-southeast-1.amazonaws.com/static-pp/pp-web-app-assets/logo-carriers/square-logo-carries/chnpos.png"
+                    width="100" height="100">
+                  </amp-img>
+                </div>
+                <div class="ppFlex-1 ppPad__m--left">
+                  <div style="padding: 5px 20px 0px 20px">
+                    <div class="ppFontS--s">
+                      <span>Overall Rating</span>
+                    </div>
+                    <div style="width: 20px; height: 20px">
+                      <span class="ppClr--second"><i class="pp-icon icon-star-full ppFontS--large"></i><i
+                        class="pp-icon icon-star-full ppFontS--large"></i><i
+                        class="pp-icon icon-star-full ppFontS--large"></i><i
+                        class="pp-icon icon-star-empty ppFontS--large"></i><i
+                        class="pp-icon icon-star-empty ppFontS--large"></i>
+                      </span>
+                    </div>
+                    <div class=" row ppMar__none ppDisFlex__align-items--baseline ppDisFlex__justify-content--space-between">
+                      <span class="ppFontW--medium ppFontS--xxl" style="padding-right: 30px">3.1</span>
+                      <div>
+                        <div style="width: 30px; height: 10px"></div>
+                        <div class="ppFontS--xs ppClr--gray-900"> based on 4271 ratings</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="http://localhost:8080/custom.js"></script>
+</body>
+</html>

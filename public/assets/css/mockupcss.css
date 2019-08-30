@@ -1,0 +1,194 @@
+.footer{
+	margin-left: 25%;
+}
+.footer-min{
+	max-width: 50%;
+	margin-left: 27%;
+}
+
+.h1, h1{
+	font-size: 1.75rem;
+}
+
+.main-view{
+	min-height: 440px;
+	min-width: 100%;
+	background: green;
+	position: relative;
+	display: flex;
+	align-items: center;
+	background-image: url(../img/FirstFold-1024px.jpg);
+    background-size: cover;
+}
+.sm-image-container{
+	/*min-width: 200px;
+    max-width: 200px;*/
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+*{
+	color: white;
+	font-family: sans-serif;
+	box-sizing: border-box;
+}
+.inputs{
+	height: 44px;
+  transition: transform .2s; /* Animation */
+}
+.inputs:hover {
+  transform: scale(1.03); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+}
+
+.image-sm{
+	width: 100px;
+	height: 100px;
+
+}
+.labels{
+	min-width: 120px;
+  left:40px;
+}
+
+
+
+.image-sm{
+	max-width: 440px;
+	
+	 max-height: 380px;
+}
+
+.icon-fb-messenger::before {
+    content: "";
+}
+.btn{
+  height: 48px;
+}
+body{
+	min-width: 100%;
+	max-width: 100%;
+}
+
+@media screen and (max-width:500px) {
+  .footer {
+    /*width:150%;  The width is 100%, when the viewport is 800px or smaller */
+    margin-left: 0px;
+    display: block!important;
+    max-width: 100%;
+    
+  }
+  .inputs{
+    min-width: 100%;
+    max-width: 100%;
+  }
+
+  .col-5{
+    max-width: 100%;
+  }
+  .btn{
+    font-size: xx-small;
+    width: 30px;
+  }
+  
+  .footer-min{
+  	padding-inline-start: 20px;
+  }
+
+  .container{
+    padding-left: 6px;
+    padding-right: 2px;
+  }
+}
+
+@media screen and (max-width:800px) {
+  .footer {
+    width:100%; /* The width is 100%, when the viewport is 800px or smaller */
+    margin-left: 0px;
+    font-size: 16px;
+  }
+  .footer-min{
+  	padding-inline-start: 20px;
+  }
+  .h1, h1{
+  	display: flex;
+  	margin-inline-start:20px;
+  	font-size: 16px;
+  }
+  .sm-image-container{
+  	justify-content: end;
+  }
+}
+
+.loader{
+        position: relative;
+        width: 300px;
+        height: 300px;
+        border-radius: 50%;
+        background: linear-gradient(#14ffe9, #ffeb3b, #ff00e0);
+        animation: animate 0.9s linear infinite;
+    }   
+     @keyframes animate {
+          0%{transform: rotate(0deg);} 
+          100%{transform: rotate(360deg);} 
+    }
+    .loader span{
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        background: linear-gradient(#14ffe9, #ffeb3b, #ff00e0);
+    }
+    .loader span:nth-child(1){
+        filter: blur(5px);
+    }
+    .loader span:nth-child(2){
+        filter: blur(10px);
+    }
+    .loader span:nth-child(3){
+        filter: blur(25px);
+    }
+    .loader span:nth-child(4){
+        filter: blur(50px);
+    }
+    .loader::after{
+        content: '';
+        position: absolute;
+        top: 30px;
+        left: 30px;
+        right: 30px;
+        bottom: 30px;
+        background: #240229;
+        border-radius: 50%;
+    }
+
+    .va-center{
+      align-items: center;
+    }
+
+    /*new button hover*/
+    #a, #b, #c, #d, #e, #f, #aa, #bb, #cc, #dd, #ee, #ff{
+     transition: 0.5s;
+   }
+
+   /*end new button hover*/
+
+   .zoom {
+  background-color: green;
+  transition: transform .2s; /* Animation */
+}
+
+.zoom:hover {
+  transform: scale(1.3); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+}
+
+button{
+  cursor: no-drop;
+}
+
+a{
+  transition: transform .6s;
+}
+
+a:hover {
+  transform: scale(1.3); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+}
